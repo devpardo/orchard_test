@@ -1,5 +1,8 @@
 import './styles/style.scss'
+import './styles/reset.css'
 
-import image from './assets/test-image.jpg'
+import headerBlock from './headerBlock'
+import cardBlock from './cardBlock'
 
-console.log('fasdfasd');
+headerBlock()
+cardBlock()
