@@ -2,7 +2,7 @@ import importAll from './importAll'
 import modal from './modal'
 
 importAll(require.context('./assets/component-01/', false, /\.(png|jpe?g|svg)$/));
-const storage = '/assets/component-01';
+const storage = './assets/component-01';
 
 function headerBlock() {
 
