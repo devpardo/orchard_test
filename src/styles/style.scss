@@ -74,8 +74,16 @@ body {
     .col {
         width: calc(100% / 3);
     }
+
+    .block-3 {
+        font-size: .6em;
+    }
 }
 @media (min-width: 992px) {
+    .block-3 {
+        font-size: 1em;
+    }
+
     .container {
         width: 970px;
     }
@@ -116,17 +124,56 @@ body {
             
         }
     }
+
+    .block-3 {
+        
+        h3.main-title {
+            padding-bottom: 1em;
+            border-bottom: 1px solid $white;
+            text-transform: uppercase;
+            font-size: larger;
+            margin-bottom: 1em;
+            font-weight: lighter;
+        }
+
+        .content {
+            font-weight: lighter;
+            color: $grey;
+            margin-bottom: 2em;
+            letter-spacing: initial;
+            line-height: 1.5em;
+        }
+
+        .reminder {
+            text-transform: uppercase;
+            color: $accent;
+            margin-bottom: 2em;
+        }
+
+        .reminder-content {
+            line-height: 1.5em;
+        }
+    }
 }
 
 .card-block {
     padding-top: 2em;
     margin-bottom: 2em;
 
+    h1 {
+        display: block;
+        font-size: 2em;
+        text-transform: uppercase;
+        margin-bottom: 1em;
+        text-align: center;
+        font-weight: lighter;
+    }
+
     .card {
         padding: 12px;
         box-sizing: border-box;
 
-        h1 {
+        h2 {
             margin-bottom: 1em;
             font-weight: bolder;
             font-size: larger;

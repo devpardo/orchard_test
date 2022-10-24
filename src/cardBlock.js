@@ -28,18 +28,24 @@ function cardBlock() {
 
    
     const div = document.getElementById('app');
-    const cardDiv = document.createElement("div");
-    cardDiv.classList.add("card-block", "container");
+    const cardDiv = document.createElement('div');
+    const sectionHeader = document.createElement('h1');
+    cardDiv.classList.add('card-block', 'container');
+
+    //The header
+    const header = document.createTextNode('All the latest from AEG')
+    sectionHeader.appendChild(header)
+    cardDiv.appendChild(sectionHeader)
     
     test.forEach(item => {
         const col = document.createElement('div')
         const cardItem = document.createElement('div')
         const cardContent = document.createElement('p')
-        const cardHeader = document.createElement('h1')
+        const cardHeader = document.createElement('h2')
         const img = document.createElement('img')
 
-        col.classList.add("col")
-        cardItem.classList.add("card")
+        col.classList.add('col')
+        cardItem.classList.add('card')
         img.src = `${storage}/${item.img}`
         cardItem.appendChild(img)
 
