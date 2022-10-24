@@ -35,12 +35,18 @@ function cardBlock() {
         const col = document.createElement('div')
         const cardItem = document.createElement('div')
         const cardContent = document.createElement('p')
+        const cardHeader = document.createElement('h1')
         const img = document.createElement('img')
 
         col.classList.add("col")
         cardItem.classList.add("card")
         img.src = `${storage}/${item.img}`
         cardItem.appendChild(img)
+
+         //The title
+         const title = document.createTextNode(item.title)
+         cardHeader.appendChild(title)
+         cardItem.appendChild(cardHeader)
 
         //The content
         const text = document.createTextNode(item.content)
