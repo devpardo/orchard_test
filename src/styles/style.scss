@@ -1,12 +1,152 @@
+$accent: #cf1430;
+$background: #0e1414;
+$white: #fff;
+$grey: #a0a1a1;
+/* open-sans-regular - latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/open-sans-v34-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../assets/fonts/open-sans-v34-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../assets/fonts/open-sans-v34-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/open-sans-v34-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/open-sans-v34-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/open-sans-v34-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+  }
+
+
 html,
 body {
-    background-color: #0e1414;
+    background-color: $background;
+    color: $white;
+    letter-spacing: initial;
+}
+
+#app {
+    font-family: 'Open Sans', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container::after,
+.container::before {
+    content: " ";
+    display: table;
+}
+
+.container:after {
+    clear: both;
+}
+
+.col {
+    position: relative;
+    min-height: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    float: left;
+}
+@media (min-width: 320px) {
+    .col {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+
+    .col {
+        width: calc(100% / 3);
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+
+    .col {
+        width: calc(100% / 3);
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+
+    .col {
+        width: calc(100% / 3);
+    }
 }
 
 .header-block {
-    background-color: red;
+    margin-bottom: 2em;
+    margin-top: 10em;
+
+    .block {
+        padding: 12px 6px;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .banner-multiple {
+
+            padding-left: 0;
+
+            &:first-child {
+                margin-bottom: 15px;
+            }
+            
+        }
+    }
 }
 
 .card-block {
-    background-color: pink;
+    padding-top: 2em;
+    margin-bottom: 2em;
+
+    .card {
+        padding: 12px;
+        box-sizing: border-box;
+
+        img {
+            display: block;
+            width: 100%;
+            border-bottom: 3px solid $accent;
+            margin-bottom: 3em;
+        }
+
+        p {
+            margin-bottom: 3em;
+            font-weight: lighter;
+            color: $grey;
+        }
+
+        a {
+            display: inline-block;
+            margin-bottom: 3em;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: .5em .3em;
+            border-bottom: 1px solid $accent;
+        }
+    }
 }
+

@@ -10,7 +10,14 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
         clean: true,
-        assetModuleFilename: 'assets/[name][ext]'
+        assetModuleFilename: (pathData) => {
+            const filepath = path
+              .dirname(pathData.filename)
+              .split("/")
+              .slice(1)
+              .join("/");
+            return `${filepath}/[name][ext]`;
+          }
     },
     devServer: {
         static: {
@@ -38,6 +45,10 @@ module.exports = {
             {
                 test: /\.(gif|svg|jpg|jpeg|png)$/i,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file-loader'
             },
             {
                 test: /\.js$/,

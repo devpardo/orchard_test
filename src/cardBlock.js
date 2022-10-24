@@ -1,6 +1,7 @@
 import importAll from './importAll'
   
-importAll(require.context('./assets/component-02', false, /\.(png|jpe?g|svg)$/));
+importAll(require.context('./assets/component-02/', false, /\.(png|jpe?g|svg)$/));
+const storage = '/assets/component-02';
 
 function cardBlock() {
 
@@ -21,43 +22,45 @@ function cardBlock() {
             id: 3,
             title: 'Summer Lunch Menu by Mark Best',
             content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr',
-            img: 'Image-01.jpg'
+            img: 'Image-03.jpg'
         }
     ];
 
    
-    let div = document.getElementById('app');
+    const div = document.getElementById('app');
     const cardDiv = document.createElement("div");
-    cardDiv.classList.add("header-block");
+    cardDiv.classList.add("card-block", "container");
     
     test.forEach(item => {
-        let cardItem = document.createElement('div')
-        let cardContent = document.createElement('p')
-        let img = document.createElement('img')
+        const col = document.createElement('div')
+        const cardItem = document.createElement('div')
+        const cardContent = document.createElement('p')
+        const img = document.createElement('img')
 
-        //The item Image
-        //img.src = `/assets/${item.img}`
-        img.src = `http://localhost:3000/assets/${item.img}`
+        col.classList.add("col")
+        cardItem.classList.add("card")
+        img.src = `${storage}/${item.img}`
         cardItem.appendChild(img)
 
         //The content
-        let text = document.createTextNode(item.content)
+        const text = document.createTextNode(item.content)
         cardContent.appendChild(text)
         cardItem.appendChild(cardContent)
 
         //The button
-        let btn = document.createElement('a')
-        let btnText = document.createTextNode('read more');
+        const btn = document.createElement('a')
+        const btnText = document.createTextNode('read more');
         btn.appendChild(btnText)
         btn.classList.add('btn', 'btn-readmore')
         cardItem.appendChild(btn)
-        cardDiv.appendChild(cardItem)
+        col.appendChild(cardItem)
+        cardDiv.appendChild(col)
     })
 
     div.appendChild(cardDiv);
 
-    cardDiv.addEventListener('click', () => {
-        console.log('fadsf');
+    cardDiv.addEventListener('click', (e) => {
+        console.log(e.target);
     })
 }
 
