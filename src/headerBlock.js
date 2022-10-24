@@ -1,10 +1,11 @@
 import importAll from './importAll'
+import modal from './modal'
+
 importAll(require.context('./assets/component-01/', false, /\.(png|jpe?g|svg)$/));
 const storage = '/assets/component-01';
 
 function headerBlock() {
 
-    //console.log(images);
     var div = document.getElementById('app');
 
     const newDiv = document.createElement('div');
@@ -20,7 +21,8 @@ function headerBlock() {
     const img = document.createElement('img')
     img.classList.add('banner')
     img.src = `${storage}/Image-01.jpg`
-
+    img.setAttribute('data-zoom', `${storage}/Image-01@2x.jpg`)
+    img.classList.add('img')
     block1.appendChild(img)
     col1.appendChild(block1)
     newDiv.appendChild(col1)
@@ -34,11 +36,15 @@ function headerBlock() {
     const img2 = document.createElement('img')
     img2.classList.add('banner-multiple')
     img2.src = `${storage}/Image-02.jpg`
+    img2.setAttribute('data-zoom', `${storage}/Image-02@2x.jpg`)
+    img2.classList.add('img')
     block2.appendChild(img2)
 
     const img3 = document.createElement('img')
     img3.classList.add('banner-multiple')
     img3.src = `${storage}/Image-03.jpg`
+    img3.setAttribute('data-zoom', `${storage}/Image-03@2x.jpg`)
+    img3.classList.add('img')
     block2.appendChild(img3)
 
 
@@ -87,8 +93,14 @@ function headerBlock() {
     div.appendChild(newDiv);
 
     newDiv.addEventListener('click', (e) => {
-        console.log(e.target);
+        if (e.path[0].dataset.zoom) {
+            modal(e.path[0].dataset.zoom)
+        } else {
+            console.log(e.target);
+        }
     })
+
+    
 }
 
 export default headerBlock

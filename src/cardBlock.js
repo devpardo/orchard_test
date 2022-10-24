@@ -1,4 +1,5 @@
 import importAll from './importAll'
+import modal from './modal'
   
 importAll(require.context('./assets/component-02/', false, /\.(png|jpe?g|svg)$/));
 const storage = '/assets/component-02';
@@ -10,19 +11,22 @@ function cardBlock() {
             id: 1,
             title: 'Summer Lunch Menu by Mark Best',
             content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr',
-            img: 'Image-01.jpg'
+            img: 'Image-01.jpg',
+            imgZoom: 'Image-01@2x.jpg',
         },
         {
             id: 2,
             title: 'Summer Lunch Menu by Mark Best',
             content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr',
-            img: 'Image-02.jpg'
+            img: 'Image-02.jpg',
+            imgZoom: 'Image-02@2x.jpg'
         },
         {
             id: 3,
             title: 'Summer Lunch Menu by Mark Best',
             content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr',
-            img: 'Image-03.jpg'
+            img: 'Image-03.jpg',
+            imgZoom: 'Image-03@2x.jpg'
         }
     ];
 
@@ -43,6 +47,9 @@ function cardBlock() {
         const cardContent = document.createElement('p')
         const cardHeader = document.createElement('h2')
         const img = document.createElement('img')
+        img.classList.add('img')
+        img.setAttribute('data-zoom', `${storage}/${item.imgZoom}`)
+        
 
         col.classList.add('col')
         cardItem.classList.add('card')
@@ -72,7 +79,12 @@ function cardBlock() {
     div.appendChild(cardDiv);
 
     cardDiv.addEventListener('click', (e) => {
-        console.log(e.target);
+
+        if (e.path[0].dataset.zoom) {
+            modal(e.path[0].dataset.zoom)
+        } else {
+            console.log(e.target);
+        }
     })
 }
 
